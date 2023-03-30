@@ -25,8 +25,18 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   @override
   Widget build(BuildContext context) {
     // userModel user = Provider.of<userProvider>(context).getUser;
-    return const Center(
-      child: Text("web"),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Plantae"),
+        centerTitle: false,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.messenger_outline),
+          ),
+        ],
+      ),
+      body: Text('hie'),
     );
   }
 }

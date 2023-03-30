@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plantae/resources/auth_methods.dart';
 import 'package:plantae/screens/sigup_screen.dart';
+import 'package:plantae/utils/dimenssions.dart';
 import 'package:plantae/utils/utils.dart';
 import 'package:plantae/widgets/text_field_input.dart';
 
@@ -60,20 +61,24 @@ class _LogInScreenState extends State<LogInScreen> {
     }));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: MediaQuery.of(context).size.width > webScreenSize
+            ? EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width / 3)
+            : const EdgeInsets.symmetric(horizontal: 32),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Flexible(
-              child: Container(),
               flex: 2,
+              child: Container(),
             ),
-            Image(
+            const Image(
               image: AssetImage('Logo.png'),
               height: 250,
               width: 250,
@@ -113,8 +118,8 @@ class _LogInScreenState extends State<LogInScreen> {
                     : Text("Login"),
                 width: double.infinity,
                 alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(vertical: 12),
-                decoration: ShapeDecoration(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: const ShapeDecoration(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(4)),
                   ),
@@ -123,27 +128,27 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
             ),
             Flexible(
-              child: Container(),
               flex: 2,
+              child: Container(),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  child: Text("Don't have an acoount?"),
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: const Text("Don't have an acoount?"),
                 ),
                 GestureDetector(
                   onTap: () {
                     navigateToSignUp();
                   },
                   child: Container(
-                    child: Text(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Text(
                       "Sign Up",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.blue),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 8),
                   ),
                 ),
               ],

@@ -123,9 +123,9 @@ class _addPostScreenState extends State<addPostScreen> {
                 onPressed: () {
                   clearImage();
                 },
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
               ),
-              title: Text("Post to"),
+              title: const Text("Post to"),
               centerTitle: false,
               actions: [
                 TextButton(
